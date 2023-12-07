@@ -1,0 +1,14 @@
+.container-fluid{
+    padding-top: 160px; 
+    padding-bottom: 160px;
+    background: linear-gradient(93deg, #e5cb88 11.8%, #e48062 97.42%);
+}
+.carousel-dark {
+    background: white;
+}
+.carousel-item-img{
+    margin-left: 120px;
+}
+.carousel-caption{
+    margin-top: 0;
+}
