@@ -4,70 +4,53 @@ fetch(`https://strangerthings-quotes.vercel.app/api/quotes/50`)
     // console.log(data)
     // console.log(data[0].author)
  
-    const buttonsList = document.getElementById('carousel-buttons')
-    const carouselCardsList = document.getElementById('all-carousels')
-    document.getElementById('first').innerText = data[0].quote
-    document.getElementById('second').innerText = data[0].author
-
-  
-
-    // const buttonsDiv= document.createElement('div')
-    // buttonsDiv.className = 'carousel-indicators col'
-    // // buttonsDiv.id = 'carousel buttons'
-    // const itemInfo1 =`
-    // <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    // `
-    // buttonsDiv.innerHTML=itemInfo1 
-    // buttonsList.appendChild(buttonsDiv)
+    const buttonsList = document.getElementById('carousel-buttons');
+    const carouselCardsList = document.getElementById('all-carousels');
 
 
+    for (let i = 0; i<50; i++){
+        let buttonsDiv= document.createElement('div');
+        if(i==0){
+            const theButton =`<button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>`
+            buttonsDiv.innerHTML=theButton;
+        }
+        else{
+            const theButton = `
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="${i}" aria-label="Slide ${i+1}"></button>`;
+        buttonsDiv.innerHTML=theButton;
 
-    for (let i = 1; i<50; i++){
-
-
-        let buttonsDiv= document.createElement('div')     
-        buttonsDiv.className = 'p-0 m-0' 
-
-
-        const theButton = `
-        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="${i}" aria-label="Slide ${i+1}"></button>
+        }
+        // const theButton = `
+        // <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="${i}" aria-label="Slide ${i+1}"></button>
         
-        `
-        buttonsDiv.innerHTML=theButton
-        buttonsList.appendChild(buttonsDiv)
-        
+        // `;
+        // buttonsDiv.innerHTML=theButton;
+        buttonsList.appendChild(buttonsDiv);
 
 
-
-        
-
-
-
-        const quote = data[i].quote
-        const author = data[i]. author
+        const quote = data[i].quote;
+        const author = data[i].author;
         // console.log(author)
-        let itemDiv= document.createElement('div')
-        itemDiv.className = 'carousel-item'
+        let itemDiv= document.createElement('div');        
+        if (i==0){
+            itemDiv.className = 'carousel-item active';
+        }
+        else{
+            itemDiv.className = 'carousel-item';
+        }
         const itemInfo =`
-        <div class="d-flex justify-content-between">
-            <div class="col-2 carousel-item-img">
-                <img src="img/images.jpeg" class="d-block " alt="...">
+        <div class="row align-items-center">
+            <div class="img-col col-sm-2">
+                <img src="img/pngaaa.com-4073931.png" class="img-fluid" alt="...">
             </div>
-            <div class="col-8 carousel-caption d-none d-md-block">
-                <h5>${quote}</h5>
-                <p>${author}</p>
+            <div class="col-sm-8 my-text">
+                <h5 id="first" class="p-3"><img src="img/double-quote-serif-left-32.ico" class="p-1" alt="''">${quote}</h5>
+                <p id="second" class="p-3">- ${author}</p>
             </div>
         </div> 
         `
         itemDiv.innerHTML = itemInfo;
-        carouselCardsList.appendChild(itemDiv)
-
-
-
-
-
-
-
+        carouselCardsList.appendChild(itemDiv);;
     }
     
 

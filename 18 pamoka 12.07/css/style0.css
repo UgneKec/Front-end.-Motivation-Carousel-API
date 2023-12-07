@@ -1,14 +1,55 @@
-.container-fluid{
-    padding-top: 160px; 
-    padding-bottom: 160px;
+.container-fluid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
     background: linear-gradient(93deg, #e5cb88 11.8%, #e48062 97.42%);
 }
 .carousel-dark {
     background: white;
 }
-.carousel-item-img{
-    margin-left: 120px;
+.carousel-item{
+    min-height: 400px;
+    padding-left: 120px;
+    padding-right: 120px;
+}
+@media (max-width: 600px){
+    .carousel-item{
+        padding: 15px;        
+    }
 }
 .carousel-caption{
     margin-top: 0;
+    padding: 20px;
+}
+.carousel-control-prev, .carousel-control-next {
+    width: 10%; /* Adjust the width of controls */
+}
+.carousel-item-img, .carousel-caption {
+    padding: 10px; 
+}
+#first{
+    font-family: 'Lato', sans-serif;
+    font-style: italic;
+    line-height: 3rem;
+    color: black;
+}
+.my-text{
+    min-height: 220px;
+}
+#second{
+    font-family: 'Lato', sans-serif;
+    font-style: italic;
+    line-height: 2rem;
+    color: lightslategrey;
+
+}
+.carousel-item .row {
+    position: absolute;
+    top: 15%;
+}
+@media (max-width: 768px) {
+    .carousel-item .row {
+        position:relative;
+    }
 }
